@@ -5,3 +5,11 @@
     ~/.zshrc: zshrc
 
 
+- clean: ['~']
+
+- link:
+    ~/.bash_profile: bash_profile
+    ~/.gitconfig: gitconfig
+    ~/.tmux.conf: tmux.conf
+
+
