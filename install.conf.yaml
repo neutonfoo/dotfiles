@@ -1,15 +1,22 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~']
 
 - link:
-    ~/.gitconfig: gitconfig
+# .dotfiles folder
+    ~/.dotfiles: ''
+
+# git
+    ~.gitconfig: gitconfig
+
+# Visual Studio Code
+    ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
+    ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
+
+# zsh
     ~/.zshrc: zshrc
 
-
-- clean: ['~']
-
-- link:
-    ~/.bash_profile: bash_profile
-    ~/.gitconfig: gitconfig
+# tmux
     ~/.tmux.conf: tmux.conf
-
-
