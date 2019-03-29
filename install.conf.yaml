@@ -9,7 +9,7 @@
     ~/.dotfiles: ''
 
 # git
-    ~.gitconfig: gitconfig
+    ~/.gitconfig: gitconfig
 
 # Visual Studio Code
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
@@ -19,4 +19,5 @@
     ~/.zshrc: zshrc
 
 # tmux
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmux.conf.local: tmux/tmux.conf.local
