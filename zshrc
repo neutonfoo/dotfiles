@@ -1,7 +1,13 @@
 export TERM="xterm-256color"
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Adds Anaconda to $PATH
+# export PATH="$HOME/Developer/miniconda3/bin:$PATH"  # commented out by conda initialize
+# Adds Flutter to $PATH
+export PATH="$PATH:$HOME/Developer/flutter/bin"
+# Adds custom scripts into $PATH
+export PATH="$PATH:$HOME/Developer/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/neutonfoo/.oh-my-zsh"
@@ -93,3 +99,24 @@ alias ll="exa -al --group-directories-first"  # list, 1 per line
 alias clear="clear && printf '\e[3J'"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline vcs)
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/neutonfoo/Developer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/neutonfoo/Developer/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/neutonfoo/Developer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/neutonfoo/Developer/google-cloud-sdk/completion.zsh.inc'; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/neutonfoo/Developer/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/neutonfoo/Developer/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/neutonfoo/Developer/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/neutonfoo/Developer/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
