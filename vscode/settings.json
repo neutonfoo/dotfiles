@@ -13,13 +13,16 @@
 	"spotify.showSignOutButton": false,
 	"terminal.integrated.fontFamily": "Hack Nerd Font",
 	"terminal.integrated.scrollback": 5000,
-	"workbench.colorTheme": "Dracula",
-	"workbench.iconTheme": "vscode-icons",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.statusBar.feedback.visible": false,
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideLineNumbers": false,
 	"zenMode.hideTabs": false,
 	"window.zoomLevel": 0,
-	"editor.fontFamily": "Hack Nerd Font"
+	"editor.fontFamily": "Hack Nerd Font",
+	"C_Cpp.updateChannel": "Insiders",
+	"[javascript]": {
+		"editor.defaultFormatter": "HookyQR.beautify"
+	},
+	"workbench.colorTheme": "Dracula Soft"
 }
