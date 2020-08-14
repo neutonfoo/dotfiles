@@ -1,6 +1,17 @@
 # neutonfoo dotfiles
 
-## Oh My ZSH
+1. Install Homebrew
+
+https://brew.sh/
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+2. Install FireCode Nerd Font
+
+https://www.nerdfonts.com/font-downloads
+
+2. Install Oh My Zsh
 
 https://github.com/ohmyzsh/ohmyzsh
 
