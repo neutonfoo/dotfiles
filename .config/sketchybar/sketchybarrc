@@ -1,0 +1,119 @@
+#!/usr/bin/env zsh
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+##### Bar Appearance #####
+# https://felixkratz.github.io/SketchyBar/config/bar
+
+sketchybar	--bar \
+                height=32 \
+                blur_radius=0 \
+                position=top \
+                sticky=on \
+                padding_left=23 \
+                padding_right=23 \
+                display=main \
+                color=0x6624273a
+
+sketchybar	--default \
+                updates=when_shown \
+                background.color=0xff24273a \
+                background.padding_left=3 \
+                background.padding_right=3 \
+                background.corner_radius=5 \
+                background.height=24 \
+                icon.color=0xffffffff \
+                icon.font="FiraCode Nerd Font:Bold:17.0" \
+                icon.padding_left=8 \
+                icon.padding_right=7 \
+                label.font="FiraCode Nerd Font:Bold:12.0" \
+                label.color=0xffcad3f5 \
+                label.padding_left=0 \
+                label.padding_right=7
+
+sketchybar	--add	item current_space left \
+            --set	current_space \
+                        background.color=0xfff5a97f \
+                        icon.font="FiraCode Nerd Font:Bold:13.0" \
+                        icon.color=0xff24273a \
+                        label.drawing=off \
+                        script="$PLUGIN_DIR/current_space.sh" \
+            --subscribe current_space space_change
+
+sketchybar  --add   item front_app left \
+            --set   front_app \
+                          icon.y_offset=1 \
+                          icon.color=0xffa6da95 \
+                          icon.padding_right=3 \
+                          script="$PLUGIN_DIR/front_app.sh" \
+            --subscribe	front_app front_app_switched
+
+sketchybar	--add	item weather.moon q \
+            --set	weather.moon \
+                    	background.color=0x667dc4e4 \
+                    	background.padding_right=-7 \
+                    	icon.color=0xff181926 \
+                    	icon.font="FiraCode Nerd Font:Bold:22.0" \
+                    	label.drawing=off \
+                    	script="$PLUGIN_DIR/moon.sh" \
+            --subscribe weather.moon mouse.clicked
+
+sketchybar	--add	item weather q \
+            --set	weather \
+                    	icon= \
+                    	icon.color=0xfff5bde6 \
+                        icon.font="FiraCode Nerd Font:Bold:15.0" \
+                    	update_freq=1800 \
+                    	script="$PLUGIN_DIR/weather.sh"
+
+SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+sketchybar	--add	item spotify_playlist e \
+            --set	spotify_playlist \
+                        background.padding_left=-5 \
+                        background.color=0xaa24273a \
+                        icon= \
+                        icon.color=0xffc6a0f6 \
+                        icon.font="FiraCode Nerd Font:Bold:19.0" \
+                        label.drawing=off \
+                        script="$PLUGIN_DIR/spotify_playlist.sh" \
+            --subscribe spotify_playlist mouse.clicked
+
+sketchybar  --add   event spotify_change $SPOTIFY_EVENT \
+            --add   item spotify e \
+            --set   spotify \
+                        icon= \
+                    	icon.font="FiraCode Nerd Font:Bold:20.0" \
+                    	icon.y_offset=1 \
+                        label.drawing=off \
+                    	label.padding_left=2 \
+                        script="$PLUGIN_DIR/spotify.sh" \
+            --subscribe spotify spotify_change mouse.clicked
+
+sketchybar  --add   item clock right \
+            --set   clock \
+                        icon= \
+                        icon.y_offset=1 \
+                        icon.color=0xffed8796 \
+                        update_freq=10 \
+                        script="$PLUGIN_DIR/clock.sh"
+
+sketchybar	--add	item	volume right \
+            --set volume \
+                      icon.y_offset=1 \
+                      icon.color=0xff8aadf4 \
+                      label.drawing=no \
+                      script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
+sketchybar  --add   item battery right \
+            --set   battery \
+                        icon.y_offset=1 \
+                        update_freq=10 \
+                        script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke
+
+##### Finalizing Setup #####
+sketchybar --update
+sketchybar --trigger space_change
+
+echo "sketchybar configuration loaded.."
