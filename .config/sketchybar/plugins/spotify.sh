@@ -43,7 +43,7 @@ update_track() {
       fi
     fi
 
-    sketchybar  --set $NAME label="${TRACK}  ${ARTIST}" label.drawing=yes icon.padding_right=3 icon.color=0xffa6da95
+    sketchybar  --set $NAME label="${TRACK}  ${ARTIST}" label.drawing=yes icon.padding_right=3 icon.color=0xffa6da95
 
   elif [ $PLAYER_STATE = "Paused" ]; then
     sketchybar --set $NAME icon.color=0xffeed49f
