@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-echo $MODIFIER
-
 case "$SENDER" in
   "mouse.clicked") 
     if [ $MODIFIER = "shift" ]; then
