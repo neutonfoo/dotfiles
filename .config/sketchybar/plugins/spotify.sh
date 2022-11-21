@@ -5,7 +5,7 @@
 MAX_LENGTH=35
 
 # Logic starts here, do not modify
-HALF_LENGTH=$((MAX_LENGTH / 2))
+HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
 
 # Spotify JSON / $INFO comes in malformed, line below sanitizes it
 
