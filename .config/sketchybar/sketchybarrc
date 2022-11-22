@@ -99,7 +99,8 @@ sketchybar	--add	item weather q \
                     	icon.color=0xfff5bde6 \
                         icon.font="FiraCode Nerd Font:Bold:15.0" \
                     	update_freq=1800 \
-                    	script="$PLUGIN_DIR/weather.sh"
+                    	script="$PLUGIN_DIR/weather.sh" \
+            --subscribe weather system_woke
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 sketchybar	--add	item spotify_playlist e \
