@@ -20,7 +20,7 @@ case $INFO in
   "Spotify")
     ICON=
     ;;
-  "iTerm2")
+  "Alacritty")
     ICON_PADDING_RIGHT=8
     ICON=
     ;;

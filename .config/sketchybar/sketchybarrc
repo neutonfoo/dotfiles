@@ -41,7 +41,7 @@ sketchybar	--add	item current_space left \
                         script="$PLUGIN_DIR/current_space.sh" \
             --subscribe current_space space_change
 
-sketchybar --add item front_app left \
+sketchybar 	--add item front_app left \
             --set   front_app \
                           background.color=0xffa6da95 \
                           background.padding_left=0 \
@@ -50,7 +50,7 @@ sketchybar --add item front_app left \
                           icon.color=0xff24273a \
                           label.drawing=no \
                           script="$PLUGIN_DIR/front_app.sh" \
-          --add item front_app.separator left \
+          	--add item front_app.separator left \
             --set   front_app.separator \
                           icon= \
                           background.padding_left=-3 \
