@@ -218,6 +218,14 @@ local config = {
                                 config = function()
                                         require("catppuccin").setup {
                                                 flavour = "macchiato", -- latte, frappe, macchiato, mocha
+                                                integrations = {
+                                                        ts_rainbow = true,
+                                                        neotree = true,
+                                                        gitsigns = true,
+                                                        telescope = true,
+                                                        which_key = true
+                                                }
+
                                         }
                                 end,
                         },
