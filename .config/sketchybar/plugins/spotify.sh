@@ -4,6 +4,7 @@
 # MAY NOT WORK WITH NON-ENGLISH CHARACTERS
 
 MAX_LENGTH=35
+# MAX_LENGTH=45
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))

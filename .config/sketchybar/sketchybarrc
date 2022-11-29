@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+FONT_FACE="FiraCode Nerd Font"
+# FONT_FACE="FantasqueSansMono Nerd Font"
 
 ##### Bar Appearance #####
 # https://felixkratz.github.io/SketchyBar/config/bar
@@ -23,10 +25,10 @@ sketchybar	--default \
                 background.corner_radius=5 \
                 background.height=24 \
                 icon.color=0xffffffff \
-                icon.font="FiraCode Nerd Font:Bold:17.0" \
+                icon.font="$FONT_FACE:Bold:17.0" \
                 icon.padding_left=8 \
                 icon.padding_right=7 \
-                label.font="FiraCode Nerd Font:Bold:12.0" \
+                label.font="$FONT_FACE:Bold:12.0" \
                 label.color=0xffcad3f5 \
                 label.padding_left=0 \
                 label.padding_right=7
@@ -35,7 +37,7 @@ sketchybar	--add	item current_space left \
             --set	current_space \
                         background.color=0xfff5a97f \
                         background.padding_right=5 \
-                        icon.font="FiraCode Nerd Font:Bold:13.0" \
+                        icon.font="$FONT_FACE:Bold:13.0" \
                         icon.color=0xff24273a \
                         label.drawing=off \
                         script="$PLUGIN_DIR/current_space.sh" \
@@ -55,7 +57,7 @@ sketchybar 	--add item front_app left \
                           icon= \
                           background.padding_left=-3 \
                           icon.y_offset=1 \
-                          icon.font="FiraCode Nerd Font:Bold:20.0" \
+                          icon.font="$FONT_FACE:Bold:20.0" \
                           icon.color=0xffa6da95 \
                           icon.padding_left=0 \
                           icon.padding_right=0 \
@@ -88,7 +90,7 @@ sketchybar	--add	item weather.moon q \
                     	background.color=0x667dc4e4 \
                     	background.padding_right=-7 \
                     	icon.color=0xff181926 \
-                    	icon.font="FiraCode Nerd Font:Bold:22.0" \
+                    	icon.font="$FONT_FACE:Bold:22.0" \
                     	label.drawing=off \
                     	script="$PLUGIN_DIR/moon.sh" \
             --subscribe weather.moon mouse.clicked
@@ -97,7 +99,7 @@ sketchybar	--add	item weather q \
             --set	weather \
                     	icon= \
                     	icon.color=0xfff5bde6 \
-                        icon.font="FiraCode Nerd Font:Bold:15.0" \
+                        icon.font="$FONT_FACE:Bold:15.0" \
                     	update_freq=1800 \
                     	script="$PLUGIN_DIR/weather.sh" \
             --subscribe weather system_woke
@@ -109,7 +111,7 @@ sketchybar	--add	item spotify_playlist e \
                         background.color=0xaa24273a \
                         icon= \
                         icon.color=0xffc6a0f6 \
-                        icon.font="FiraCode Nerd Font:Bold:19.0" \
+                        icon.font="$FONT_FACE:Bold:19.0" \
                         label.drawing=off \
                         script="$PLUGIN_DIR/spotify_playlist.sh" \
             --subscribe spotify_playlist mouse.clicked
@@ -118,7 +120,7 @@ sketchybar  --add   event spotify_change $SPOTIFY_EVENT \
             --add   item spotify e \
             --set   spotify \
                         icon= \
-                    	icon.font="FiraCode Nerd Font:Bold:20.0" \
+                    	icon.font="$FONT_FACE:Bold:20.0" \
                     	icon.y_offset=1 \
                         label.drawing=off \
                     	label.padding_left=2 \

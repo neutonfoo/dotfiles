@@ -3,6 +3,14 @@
 ICON_PADDING_RIGHT=10
 
 case $INFO in
+  "Alacritty")
+    ICON_PADDING_RIGHT=8
+    ICON=
+    ;;
+  "Calendar")
+    ICON_PADDING_RIGHT=8
+    ICON=
+    ;;
   "Discord")
     ICON=ﭮ
     ;;
@@ -17,12 +25,15 @@ case $INFO in
     ICON_PADDING_RIGHT=7
     ICON=
     ;;
+  "Messages")
+    ICON=
+    ;;
+  "Notion")
+    ICON_PADDING_RIGHT=12
+    ICON=
+    ;;
   "Spotify")
     ICON=
-    ;;
-  "Alacritty")
-    ICON_PADDING_RIGHT=8
-    ICON=
     ;;
   *)
     ICON=﯂

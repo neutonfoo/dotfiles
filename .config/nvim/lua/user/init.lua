@@ -138,12 +138,14 @@ local config = {
                 formatting = {
                         -- control auto formatting on save
                         format_on_save = {
-                                enabled = false, -- enable or disable format on save globally
+                                enabled = true, -- enable or disable format on save globally
                                 allow_filetypes = { -- enable format on save for specified filetypes only
                                         -- "go",
                                 },
                                 ignore_filetypes = { -- disable format on save for specified filetypes
                                         -- "python",
+                                        "lua",
+                                        "yaml"
                                 },
                         },
                         disabled = { -- disable formatting capabilities for the listed language servers
@@ -218,6 +220,7 @@ local config = {
                                 config = function()
                                         require("catppuccin").setup {
                                                 flavour = "macchiato", -- latte, frappe, macchiato, mocha
+                                                transparent_background = true,
                                                 integrations = {
                                                         ts_rainbow = true,
                                                         neotree = true,
@@ -273,6 +276,12 @@ local config = {
                         return config
                 end,
                 -- All other entries override the require("<key>").setup({...}) call for default plugins
+                -- ["toggleterm"] = function(config)
+                --         config = {
+                --                 -- start_in_insert = true
+                --         }
+                --         return config
+                -- end,
                 ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
                         -- config variable is the default configuration table for the setup function call
                         local null_ls = require "null-ls"
