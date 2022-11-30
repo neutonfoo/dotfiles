@@ -3,7 +3,7 @@
 ICON_PADDING_RIGHT=10
 
 case $INFO in
-  "Alacritty")
+  "kitty")
     ICON_PADDING_RIGHT=8
     ICON=
     ;;
