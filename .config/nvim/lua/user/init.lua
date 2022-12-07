@@ -4,6 +4,8 @@
 -- You can think of a Lua "table" as a dictionary like data structure the
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
+local macchiato = require("catppuccin.palettes").get_palette "macchiato"
+
 local config = {
 
     -- Configure AstroNvim updates
@@ -24,7 +26,6 @@ local config = {
         --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
         -- },
     },
-
 
     -- Set colorscheme to use
     colorscheme = "catppuccin",
@@ -51,7 +52,7 @@ local config = {
             tabstop = 4,
             shiftwidth = 4,
             expandtab = true,
-            softtabstop = 4
+            softtabstop = 4,
         },
         g = {
             mapleader = " ", -- sets vim.g.mapleader
@@ -84,7 +85,7 @@ local config = {
         "  ▀▄     ▀▄  █     ▀██▀     ██▄█   ",
         "   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ",
         "    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ",
-        "   █   █  █      ▄▄           ▄▀   "
+        "   █   █  █      ▄▄           ▄▀   ",
     },
 
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
@@ -172,7 +173,6 @@ local config = {
             -- ["<esc>"] = false,
         },
     },
-
     -- Configure plugins
     plugins = {
         init = {
@@ -182,7 +182,7 @@ local config = {
                 config = function()
                     require("catppuccin").setup {
                         flavour = "macchiato",
-                        transparent_background = true
+                        transparent_background = true,
                     }
                 end,
             },
@@ -214,13 +214,20 @@ local config = {
                 -- set the fg/bg of the statusline
                 hl = { fg = "fg", bg = "bg" },
                 -- when adding the mode component, enable the mode text with padding to the left/right of it
-                astronvim.status.component.mode { mode_text = { padding = { left = 1, right = 1 } } },
+                astronvim.status.component.mode {
+                    mode_text = { hl = { bold = true }, padding = { left = 1, right = 1 } },
+                    hl = { fg = macchiato.base },
+                    surround = {
+                        separator = "left",
+                    },
+                },
                 -- add all the other components for the statusline
                 astronvim.status.component.git_branch(),
                 astronvim.status.component.file_info(),
                 astronvim.status.component.git_diff(),
                 astronvim.status.component.diagnostics(),
                 astronvim.status.component.fill(),
+                astronvim.status.component.cmd_info(),
                 astronvim.status.component.macro_recording(),
                 astronvim.status.component.fill(),
                 astronvim.status.component.lsp(),
@@ -246,15 +253,18 @@ local config = {
             return config -- return final config table
         end,
         treesitter = { -- overrides `require("treesitter").setup(...)`
-            -- ensure_installed = { "lua" },
+            ensure_installed = { "lua" },
         },
         -- use mason-lspconfig to configure LSP installations
         ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-            -- ensure_installed = { "sumneko_lua" },
+            ensure_installed = { "sumneko_lua" },
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
         ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-            -- ensure_installed = { "prettier", "stylua" },
+            ensure_installed = { "prettier", "stylua" },
+        },
+        ["notify"] = {
+            background_colour = macchiato.base,
         },
     },
 
