@@ -167,6 +167,10 @@ local config = {
             ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
             -- quick save
             -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+            
+            -- For work, uncomment on work laptop when working on EtsyWeb
+            -- ["<leader>\""] = { ":let @\" = expand(\"%:p\")<cr>", desc = "Copy relative filepath into yank" },
+            -- ["<leader>\'"] = { ":let @\" = expand(\"%:.:s?templates/??\")<cr>", desc = "Copy template filepath into yank" }
         },
         t = {
             -- setting a mapping to false will disable it
