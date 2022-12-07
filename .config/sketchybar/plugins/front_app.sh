@@ -32,6 +32,10 @@ case $INFO in
     ICON_PADDING_RIGHT=12
     ICON=
     ;;
+  "PS Remote Play")
+    ICON_PADDING_RIGHT=6
+    ICON=
+    ;;
   "Spotify")
     ICON=
     ;;

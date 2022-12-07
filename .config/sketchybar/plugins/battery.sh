@@ -8,7 +8,7 @@ if [ $PERCENTAGE = "" ]; then
 fi
 
 case ${PERCENTAGE} in
-  8[0-9]|100) 
+  [8-9][0-9]|100) 
     ICON=""
     ICON_COLOR=0xffa6da95
     ;;

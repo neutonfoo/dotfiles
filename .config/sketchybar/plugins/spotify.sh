@@ -11,11 +11,10 @@ HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
 
 # Spotify JSON / $INFO comes in malformed, line below sanitizes it
 
-SPOTIFY_JSON="{$(echo $INFO | iconv -f utf-8 -t utf-8 -c | cut -d'}' -f1 | cut -d'{' -f2)}"
+# SPOTIFY_JSON="{$(echo $INFO | iconv -f utf-8 -t utf-8 -c | cut -d'}' -f1 | cut -d'{' -f2)}"
+SPOTIFY_JSON="$INFO"
 
 update_track() {
-
-
   PLAYER_STATE=$(echo "$SPOTIFY_JSON" | jq -r '.["Player State"]')
 
   if [ $PLAYER_STATE = "Playing" ]; then
@@ -43,7 +42,6 @@ update_track() {
         ARTIST="${ARTIST:0:$(( MAX_LENGTH - TRACK_LENGTH - 1 ))}…"
       fi
     fi
-
     sketchybar  --set $NAME label="${TRACK}  ${ARTIST}" label.drawing=yes icon.padding_right=3 icon.color=0xffa6da95
 
   elif [ $PLAYER_STATE = "Paused" ]; then
