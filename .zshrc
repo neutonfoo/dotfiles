@@ -112,4 +112,5 @@ alias config='/usr/bin/git --git-dir=/Users/neutonfoo/.config.git/ --work-tree=/
 #
 eval "$(starship init zsh)"
 
+# krabby random --no-title --no-gmax --no-mega --no-regional
 krabby random 1,2,3 --no-title --no-gmax --no-mega --no-regional
