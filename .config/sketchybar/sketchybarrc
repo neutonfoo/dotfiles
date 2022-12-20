@@ -15,5 +15,7 @@ else
     source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
 fi
 
+# source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
+
 osascript -e 'quit app "Rectangle"'
 open -a Rectangle

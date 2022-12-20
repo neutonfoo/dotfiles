@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
-FONT_FACE="FiraCode Nerd Font"
-# FONT_FACE="FantasqueSansMono Nerd Font"
+FONT_FACE="JetBrainsMono Nerd Font"
 
 ##### Bar Appearance #####
 # https://felixkratz.github.io/SketchyBar/config/bar
@@ -56,8 +55,8 @@ sketchybar 	--add item front_app left \
             --set   front_app.separator \
                           icon= \
                           background.padding_left=-3 \
-                          icon.y_offset=1 \
-                          icon.font="$FONT_FACE:Bold:20.0" \
+                          icon.y_offset=0 \
+                          icon.font="$FONT_FACE:Bold:19.0" \
                           icon.color=0xffa6da95 \
                           icon.padding_left=0 \
                           icon.padding_right=0 \

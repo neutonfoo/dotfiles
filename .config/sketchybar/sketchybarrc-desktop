@@ -130,4 +130,4 @@ sketchybar	--default \
 
 ##### Finalizing Setup #####
 sketchybar --update
-sketchybar --trigger space_change volume_change
+sketchybar --trigger space_change volume_change spotify_change
