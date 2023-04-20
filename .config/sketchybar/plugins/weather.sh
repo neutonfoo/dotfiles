@@ -14,57 +14,42 @@ WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=j1")
 # Fallback if empty
 if [ -z $WEATHER_JSON ]; then
 
-  sketchybar --set $NAME label=$LOCATION
-  sketchybar --set $NAME.moon icon=
-  
-  return
-fi
+    sketchybar --set $NAME label=$LOCATION
+    sketchybar --set $NAME.moon icon=
 
-# echo $WEATHER_JSON
+    return
+fi
 
 TEMPERATURE=$(echo $WEATHER_JSON | jq '.current_condition[0].temp_C' | tr -d '"')
 WEATHER_DESCRIPTION=$(echo $WEATHER_JSON | jq '.current_condition[0].weatherDesc[0].value' | tr -d '"' | sed 's/\(.\{25\}\).*/\1.../')
 MOON_PHASE=$(echo $WEATHER_JSON | jq '.weather[0].astronomy[0].moon_phase' | tr -d '"')
 
 case ${MOON_PHASE} in
-  "New Moon")
+"New Moon")
     ICON=
     ;;
-  "Waxing Crescent")
+"Waxing Crescent")
     ICON=
     ;;
-  "First Quarter")
+"First Quarter")
     ICON=
     ;;
-  "Waxing Gibbous")
+"Waxing Gibbous")
     ICON=
     ;;
-  "Full Moon")
+"Full Moon")
     ICON=
     ;;
-  "Waning Gibbous")
+"Waning Gibbous")
     ICON=
     ;;
-  "Last Quarter")
+"Last Quarter")
     ICON=
     ;;
-  "Waning Crescent")
+"Waning Crescent")
     ICON=
     ;;
 esac
-
-# WEATHER_CODE=$(echo $WEATHER_JSON | jq '.current_condition[0].weatherCode' | tr -d '"')
-#
-# case $WEATHER_CODE in
-#   116) # Partly cloudy
-#     WEATHER_ICON=
-#     ;;
-#   *)
-#     WEATHER_ICON=
-#     ;;
-# esac
-#
-# echo "WEATHER CODE $WEATHER_CODE"
 
 sketchybar --set $NAME label="$LOCATION  $TEMPERATURE糖 $WEATHER_DESCRIPTION"
 sketchybar --set $NAME.moon icon=$ICON

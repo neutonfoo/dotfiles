@@ -1,21 +1,14 @@
 #!/usr/bin/env zsh
 
 SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
-# MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' ')
+
+# This is used to determine if a monitor is used
+# Since the notch is -only- on the laptop, if a monitor isn't used,
+# then that means the internal display is used ¯\_(ツ)_/¯
 MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
 
-if [ -z $MAIN_DISPLAY ]; then
-    defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 24
-    source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
-elif [ $MAIN_DISPLAY = "Built-in" ]; then
-    defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
+if [[ $MAIN_DISPLAY = "Built-in" ]]; then
     source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
 else
-    defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 24
     source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
 fi
-
-# source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
-
-osascript -e 'quit app "Rectangle"'
-open -a Rectangle
