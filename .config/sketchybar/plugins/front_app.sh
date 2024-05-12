@@ -13,17 +13,17 @@ case $INFO in
     ;;
 "Calendar")
     ICON_PADDING_RIGHT=3
-    ICON=
+    ICON=
     ;;
 "Discord")
-    ICON=󰙯
+    ICON=
     ;;
 "FaceTime")
     ICON_PADDING_RIGHT=5
     ICON=
     ;;
 "Finder")
-    ICON=
+    ICON=󰀶
     ;;
 "Google Chrome")
     ICON_PADDING_RIGHT=7
@@ -37,11 +37,11 @@ case $INFO in
     ICON=󰄛
     ;;
 "Messages")
-    ICON=󰍦
+    ICON=
     ;;
 "Notion")
     ICON_PADDING_RIGHT=6
-    ICON=󰈄
+    ICON=󰎚
     ;;
 "Preview")
     ICON_PADDING_RIGHT=3
@@ -52,6 +52,7 @@ case $INFO in
     ICON=
     ;;
 "Spotify")
+    ICON_PADDING_RIGHT=2
     ICON=
     ;;
 "TextEdit")
@@ -63,7 +64,8 @@ case $INFO in
     ICON=󰶘
     ;;
 *)
-    ICON=﯂
+    ICON_PADDING_RIGHT=2
+    ICON=
     ;;
 esac
 
